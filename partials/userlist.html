@@ -1,0 +1,43 @@
+<div class="jumbotron {{transitionState}}">
+
+  <section>
+
+
+    <div class="well">
+      <h1>User directory</h1>
+
+      <section class="filter">
+            <input type="text" ng-model="query" placeholder="search user" autofocus/>
+            <select ng-model="order" placeholder="filter user by:">
+                <option value="name">name</option>
+                <option value="email">email</option>
+            </select>
+      </section>
+    </div>
+
+
+
+    <ul class="list-group">
+      <li class="list-group-item" ng-repeat="item in users | filter: query | orderBy:order">
+        <div class="info">
+          <a ng-href="#/details/{{item.name}}" class="user-item">
+
+            <div class="item-icon">
+                 <i ng-hide="item.avatar" class="fa fa-user"></i>
+                 <img ng-show="item.avatar" src="../uploads/images/thumb/{{item.avatar}}">
+            </div>
+
+            <section class="item-content">
+            <header>
+                <h4>{{item.name}}</h4>
+            </header>
+            </section>
+
+<!--      <h3>{{item.email}}</h3>-->
+          <span>member since: {{item.created_at}}</span>
+          </a>
+        </div>
+      </li>
+    </ul>
+  </section>
+ </div>

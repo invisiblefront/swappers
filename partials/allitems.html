@@ -1,0 +1,23 @@
+<div class="jumbotron {{transitionState}}">
+  <div class="well">
+    <h1>All items</h1>
+    <section class="filter">
+      <input type="text" ng-model="query" placeholder="search by title" autofocus/>
+      <select ng-model="order" placeholder="filter user by:">
+        <option value="name">name</option>
+        <option value="category">category</option>
+        <option value="owner">owner</option>
+      </select>
+    </section>
+  </div>
+  <section>
+    <ul class="list-group" ng-controller="borrowController">
+      <li class="list-group-item" ng-repeat="itm in items | filter: query | orderBy:order" ng-show="itm.status==1" ng-click="borrow($event, itm)">
+        <item name="{{itm.name}}" owner="{{itm.owner}}" category="{{itm.category}}" swappable="true" confirmed="checkConfirmed(jn)">
+
+        </item>
+
+      </li>
+    </ul>
+  </section>
+</div>

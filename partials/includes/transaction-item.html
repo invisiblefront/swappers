@@ -1,0 +1,9 @@
+<!-- <li ng-repeat="item in value" class="transaction-item" ng-mouseover="over=true" ng-mouseleave="over=false" ng-controller="transactionItemController">
+		<a href="#" ng-click="showItemDetails($event)">{{item}}</a>
+		<a href="#" ng-show="over" ng-click="removeFromBorrow($event,item)">x</a>
+</li> -->
+
+<li ng-repeat="item in value" class="transaction-item" ng-mouseover="over=true" ng-mouseleave="over=false">
+		<a href="#" ng-click="showItemDetails($event)"> {{item}} </a>
+		<a href="#" ng-show="over" ng-click="removeFromBorrow($event,item)">x</a>
+</li>

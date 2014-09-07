@@ -1,0 +1,62 @@
+<div class="jumbotron {{transitionState}}">
+  <div class="well">
+    <h1 ng-model="title">Library of <strong>{{title}}</strong></h1>
+    <section class="filter">
+      <input type="text" ng-model="query" placeholder="search by title" autofocus/>
+      <select ng-model="order" placeholder="filter user by:">
+        <option value="name">name</option>
+        <option value="category">category</option>
+      </select>
+    </section>
+  </div>
+
+  <section>
+    <ul class="list-group">
+      <li class="list-group-item" ng-repeat="itm in libraryItems track by $index | filter: query | orderBy:order" ng-show="itm.status==1">
+        <item ng-class="cls" ng-click="manipulateItem($event, $index, itm)" name="{{itm.name}}" owner="{{itm.owner}}" category="{{itm.category}}"></item>
+      </li>
+    </ul>
+  </section>
+
+  <nav id="library-menu">
+    <button class="add-item" ng-click="addItem()" ng-hide="newItemForm">add item</button>
+    <button class="remove-item" ng-click="removeItem()" ng-hide="newItemForm">{{manipulation}}</button>
+  </nav>
+
+  <section id="new-item-form">
+
+    <button class="close-btn" ng-click="closeItem()" ng-show="newItemForm">x</button>
+    <span>{{instructions}}</span>
+    <form class="form-horizontal" ng-submit=submit() ng-show="newItemForm">
+      <fieldset>
+        <div id="legend">
+          <legend class=""><h2>new item</h2></legend>
+        </div>
+        <div class="control-group">
+          <div class="controls">
+            <input ng-model="newItem.name" type="text" id="item-name" name="item-name" placeholder="title" class="input-xlarge">
+          </div>
+        </div>
+
+        <div class="control-group">
+          <div class="controls">
+            <input ng-model="newItem.description" type="text" id="item-description" name="item-description" placeholder="description" class="input-xlarge">
+          </div>
+        </div>
+        <div class="control-group">
+          <!-- E-mail -->
+          <label class="control-label" for="item-category">Category</label>
+          <div class="controls">
+          <select ng-model="newItem.category" ng-options="name for name in categories" placeholder="select category" name="item-category" id="item-category"></select>
+        </div>
+      </div>
+      <div class="control-group">
+        <!-- Button -->
+        <div class="controls">
+          <button class="abstact-button">confirm</button>
+        </div>
+      </div>
+    </fieldset>
+  </form>
+</section>
+</div>

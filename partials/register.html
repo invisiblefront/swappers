@@ -1,0 +1,87 @@
+<div class="jumbotron {{transitionState}}">
+  <div class="register">
+
+      <div class="col-sm-6 col-md-4 col-md-offset-4">
+      <h2 class="text-center login-title">Register</h2>
+
+
+  <form class="form-horizontal" ng-submit=submit()>
+    <fieldset>
+      <div class="control-group">
+        <!-- Username -->
+        <label class="control-label"  for="username">Username</label>
+        <div class="controls">
+          <input ng-model="register.username" type="text" id="username" name="username" placeholder="name" class="input-xlarge">
+          <p class="help-block">Username can contain any letters or numbers, without spaces</p>
+        </div>
+      </div>
+
+      <div class="control-group">
+        <!-- E-mail -->
+        <label class="control-label" for="email">E-mail</label>
+        <div class="controls">
+          <input ng-model="register.email" type="text" id="email" name="email" placeholder="email" class="input-xlarge">
+          <p class="help-block">Please provide your E-mail</p>
+        </div>
+      </div>
+
+      <div class="control-group">
+        <!-- Password-->
+        <label  class="control-label" for="password">Password</label>
+        <div class="controls">
+          <input type="password" ng-model="register.password" id="password" name="password" placeholder="password" class="input-xlarge">
+          <p class="help-block">Password should be at least 4 characters</p>
+        </div>
+      </div>
+
+      <div class="control-group">
+        <!-- post code-->
+        <label  class="control-label" for="password">Postal code</label>
+        <div class="controls">
+  <!--         <input type="text" id="post" ng-model="register.post" name="post" placeholder="postcode" class="input-xlarge">
+         -->
+          <select ng-model="register.post" placeholder="postcode">
+            <option value="1010">1010</option>
+            <option value="1020">1020</option>
+            <option value="1030">1040</option>
+            <option value="1040">1040</option>
+            <option value="1050">1050</option>
+            <option value="1060">1060</option>
+            <option value="1070">1070</option>
+            <option value="1080">1080</option>
+            <option value="1090">1090</option>
+            <option value="1100">1100</option>
+            <option value="1120">1120</option>
+            <option value="1130">1130</option>
+            <option value="1140">1140</option>
+            <option value="1150">1150</option>
+            <option value="1160">1160</option>
+            <option value="1170">1170</option>
+            <option value="1180">1180</option>
+            <option value="1190">1190</option>
+            <option value="1200">1200</option>
+          </select>
+        </div>
+      </div>
+
+          <div class="control-group">
+            <input type="file" name="image" id="image" ng-file-select="onFileSelect($files)">
+            <br/>
+            <span class="errorMsg">{{message}}</span>
+          </div>
+
+
+      <div class="control-group">
+        <!-- Button -->
+        <div class="controls">
+          <button class="register-btn abstact-button">Register</button>
+        </div>
+      </div>
+    </fieldset>
+  </form>
+
+
+      </div>
+  </div>
+
+</div>

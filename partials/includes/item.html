@@ -1,0 +1,39 @@
+<a href="#" class="category" title="{{itm.description}}" ng-mouseover="itemOver()" ng-mouseleave="itemOut()">
+
+	<div ng-if="category == 'books'" class="item-icon">
+		<img src="img/icons/book-icon.png">
+	</div>
+	<div ng-if="category == 'movies'" class="item-icon">
+		<img src="img/icons/movie-icon.png">
+	</div>
+	<div ng-if="category == 'games'" class="item-icon">
+		<img src="img/icons/game-icon.png">
+	</div>
+	<div ng-if="category == 'others'" class="item-icon">
+		<img src="img/icons/other-icon.png">
+	</div>
+	<section class="item-content">
+
+		<section ng-hide="timePick">
+			<header ng-show="swap==false">
+				<h4>{{name}}</h4>
+				<span>Owned by <strong>{{owner}}</strong></span>
+			</header>
+
+			<header ng-show="swap==true">
+				<h4>click to borrow {{name}}</h4>
+			</header>
+		</section>
+
+
+<!-- 		<section ng-show="timePick">
+			<label for="movie">how long would you like to have the item? : </label>
+			<input id="movie" type="number" value="0"/>
+			<button class="abstract-button" ng-click="confirmSwap()">confirm</button>
+		</section> -->
+	</section>
+
+
+
+
+</a>

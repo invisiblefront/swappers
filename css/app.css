@@ -1,0 +1,378 @@
+/* app css stylesheet */
+
+.menu {
+  list-style: none;
+  border-bottom: 0.1em solid black;
+  margin-bottom: 2em;
+  padding: 0 0 0.5em;
+}
+.menu:before {
+  content: "[";
+}
+.menu:after {
+  content: "]";
+}
+.menu > li {
+  display: inline;
+}
+.menu > li:before {
+  content: "|";
+  padding-right: 0.3em;
+}
+.menu > li:nth-child(1):before {
+  content: "";
+  padding: 0;
+}
+.form-signin {
+  max-width: 330px;
+  padding: 15px;
+  margin: 0 auto;
+}
+.form-signin .form-signin-heading,
+.form-signin .checkbox {
+  margin-bottom: 10px;
+}
+.form-signin .checkbox {
+  font-weight: normal;
+}
+.form-signin .form-control {
+  position: relative;
+  font-size: 16px;
+  height: auto;
+  padding: 10px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.form-signin .form-control:focus {
+  z-index: 2;
+}
+.form-signin input[type="text"] {
+  margin-bottom: -1px;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+.form-signin input[type="password"] {
+  margin-bottom: 10px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+.account-wall {
+  margin-top: 20px;
+  padding: 40px 0px 20px 0px;
+  background-color: #f7f7f7;
+  -moz-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+  -webkit-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+}
+.login-title {
+  color: #555;
+  font-size: 18px;
+  font-weight: 400;
+  display: block;
+}
+.profile-img {
+  width: 96px;
+  height: 96px;
+  margin: 0 auto 10px;
+  display: block;
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+  border-radius: 50%;
+}
+.need-help {
+  margin-top: 10px;
+}
+.new-account {
+  display: block;
+  margin-top: 10px;
+}
+
+/* custom hacks */
+.filter select {
+  height: 27px;
+}
+.user-item:parent {
+  background-color: #FEEE29;
+}
+.user-item {
+  color: #000000;
+  display: block;
+}
+.user-item:hover {
+}
+
+
+/* --------------- global ----------------------*/
+
+h1
+{
+  font-family: 'Oswald', sans-serif;
+  font-size: 4rem !important;
+}
+
+/* ------------------------------- list items  ------------------------------- */
+.list-group {
+  overflow: auto;
+}
+.list-group-item {
+  color: #FFFFFF;
+  width: 320px;
+  height: 72px;
+  float: left;
+  display: block;
+  margin: 0;
+  padding: 0;
+}
+.list-group-item a {
+  padding: 10px;
+  display: block;
+  color: #FFFFFF;
+  width: 100%;
+  height: 100%;
+  background-color: #000000;
+}
+.list-group-item a:hover {
+  color: #F97373;
+  text-decoration: none;
+}
+.item-icon {
+  float: left;
+  width: 60px;
+}
+.item-icon img {
+}
+.item-content {
+  float: left;
+  height: 50px;
+  padding-top: 10px;
+}
+
+strong {
+  text-transform: capitalize;
+}
+
+.item-content header h4 {
+  font-size: 1.2rem;
+  padding: 0;
+  margin: 0;
+  text-transform: uppercase;
+}
+.item-content header span {
+  font-style: italic;
+}
+
+/* ------------------------------- navigation bar ------------------------------- */
+.nav {
+  font-family: 'Open Sans', sans-serif;
+  text-transform: uppercase;
+}
+.navbar-brand {
+  font-family: 'Open Sans', sans-serif;
+  font-style: 3rem;
+  text-transform: uppercase;
+}
+#logout_btn {
+  background-color: none;
+  border: none;
+  margin-top: 15px;
+  float: right;
+}
+
+/* ------------------------------- transactions items  ------------------------------- */
+
+.transaction-list {
+  background-color: #FDE19F;
+  font-family: 'Oswald', sans-serif;
+  float: none;
+}
+.transaction-list ul {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+.transaction-list ul li {
+  list-style: none;
+  margin-bottom: 20px;
+}
+.transaction-list ul li div {
+  padding: 0;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+[class*="col-"] {
+  padding-top: 15px;
+  padding-bottom: 15px;
+  border: 1px solid #ddd;
+  border: 1px solid rgba(86, 61, 124, .2);
+  color: #FFFFFF;
+}
+
+.row {
+  background-color: #FAC547;
+  padding-bottom: 10px;
+
+
+    display:box;
+    /* Firefox */
+    display:-moz-box;
+    -moz-box-orient:horizontal;
+     /* Safari, Opera, and Chrome */
+    display:-webkit-box;
+    -webkit-box-orient:horizontal;
+    /* W3C */
+    display:box;
+    box-orient:horizontal;
+
+    width: 100%;
+}
+
+.left-transaction {
+  background-color: #AA1919;
+  
+/*  min-height: 160px;*/
+
+    -moz-box-flex:1.0; /* Firefox */
+    -webkit-box-flex:1.0; /* Safari and Chrome */
+    -ms-flex:1.0; /* Internet Explorer 10 */
+    box-flex:1.0;
+
+    width: 40%;
+}
+.right-transaction {
+  background-color: #E25B2E;
+  
+  /*min-height: 160px;*/
+
+    -moz-box-flex:1.0; /* Firefox */
+    -webkit-box-flex:1.0; /* Safari and Chrome */
+    -ms-flex:1.0; /* Internet Explorer 10 */
+    box-flex:1.0;
+
+    width: 40%;
+}
+.mid-transaction {
+  background-color: #6F0000;
+  
+  /*min-height: 160px;*/
+
+    -moz-box-flex:1.0; /* Firefox */
+    -webkit-box-flex:1.0; /* Safari and Chrome */
+    -ms-flex:1.0; /* Internet Explorer 10 */
+    box-flex:1.0;
+
+    width: 20%;
+}
+
+.mid-transaction button{
+  width: 100%;
+  min-height: 150px;
+  background: none;
+  background-image: url("../img/icons/transition-icon.gif");
+  background-repeat: no-repeat;
+  background-position: center;
+  border:none;
+  opacity: 0.5;
+}
+
+.right-transaction button strong {
+  text-transform: capitalize;
+}
+.left-transaction h3 strong {
+  text-transform: capitalize;
+}
+.library-btn {
+  background-color: #FFFFFF;
+  border: none;
+  color: #000000;
+  width: 100%;
+  height: 140px;
+  margin-top: 10px;
+  -moz-transition: color 0.4s linear;
+  -o-transition: color 0.4s linear;
+  -webkit-transition: color 0.4s linear;
+  -ms-transition: color 0.4s linear;
+}
+.right-transaction button:hover {
+  background-color: #F9BD31
+}
+
+.transaction-item {
+  float: left;
+  border-style: solid;
+  border-width: 2px;
+  border-color: #000000;
+  margin-right: 10px;
+  margin-bottom: 10px;
+}
+
+.transaction-item a {
+  padding: 10px;
+  display: block;
+  color: #000000;
+  background-color: #FFFFFF;
+  -moz-transition: color 0.3s linear;
+  -o-transition: color 0.3s linear;
+  -webkit-transition: color 0.3s linear;
+  -ms-transition: color 0.3s linear;
+  float: left;
+}
+
+.transaction-item a:hover {
+  text-decoration: none;
+  color: #000000;
+  background-color: #F9BD31
+}
+
+.closeTransactionLibrary {
+  float: right;
+  margin-top: 10px;
+  background-color: #000000;
+  border: none;
+  color: #FFFFFF;
+  padding: 4px;
+  display: block;
+}
+.transaction-list {
+  margin-top: 10px;
+}
+
+.show-more-btn
+{
+  float: right;
+  color: #000000;
+  border:solid;
+  border-color: black;
+  border-width: 2px;
+  height: 40px
+}
+
+.swap-item
+{
+  margin-bottom: 10px;
+}
+
+/* -------------- my library ----------------*/
+
+.btn-success
+{
+  margin-top: 30px;
+  background-color: #000000
+}
+
+#item-name
+{
+  width: 300px;
+}
+
+#item-description
+{
+  width: 300px;
+}
+
+#item-category
+{
+  width: 150px;
+}
+
+
