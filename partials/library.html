@@ -12,8 +12,8 @@
 
   <section>
     <ul class="list-group">
-      <li class="list-group-item" ng-repeat="itm in libraryItems track by $index | filter: query | orderBy:order" ng-show="itm.status==1">
-        <item ng-class="cls" ng-click="manipulateItem($event, $index, itm)" name="{{itm.name}}" owner="{{itm.owner}}" category="{{itm.category}}"></item>
+      <li ng-repeat="itm in libraryItems track by $index | filter: query | orderBy:order" ng-click="manipulateItem($event, $index, itm)" ng-class='whatClassIsIt(itm)'>
+        <item name="{{itm.name}}" owner="{{itm.owner}}" category="{{itm.category}}" swappable="false"></item>
       </li>
     </ul>
   </section>

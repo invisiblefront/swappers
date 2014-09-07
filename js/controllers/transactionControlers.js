@@ -204,40 +204,49 @@ angular.module('myApp.transactionControlers', [])
       }
       $scope.close = function($event){
         $event.preventDefault();
-
         $scope.visible=true;
       }
     }
   ]).controller('borrowController', ['$scope','HttpConnectorService',
-    function($scope,HttpConnectorService) {
+    function($scope,HttpConnectorService){
 
-          $scope.borrow=function($event,item)
-          {
-            $event.preventDefault();
+      $scope.whatClassIsIt=function(itm)
+      {
+        var _cls;
+        if(itm.status==1)
+        {
+          // show normal
+          _cls="list-group-item";
+        }
+        else
+        {
+          // show grey
+          _cls="list-group-item-borrowed";
+        }
+        return _cls;
+      }
 
-            var data={
-              "itemName":item.name,
-              "itemRequestor":localStorage.getItem("username"),
-              "itemOwner":item.owner
-            };
 
-
-
-
-
-           HttpConnectorService.borrowItem(data,function(res)
+      $scope.checkSwapReady=function(itm)
+      {
+          if(itm.status==1)
             {
+              // show normal
+              $scope.isswappable=true;
+            }
+            else
+            {
+              // show grey
+               $scope.isswappable=false;
+            }
 
-            });
+        return $scope.isswappable;
+      }
 
 
-/*              $scope.checkConfirmed=function(jn)
-              {
-                console.log(jn);
-              }*/
 
 
-          }
+
 
 
 

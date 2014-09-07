@@ -121,7 +121,7 @@ servicesModule.service('$upload', ['$http', '$q', '$timeout', function($http, $q
     }
 
     $http(config).then(function(r){deferred.resolve(r)}, function(e){deferred.reject(e)}, function(n){deferred.notify(n)});
-    
+
     var promise = deferred.promise;
     promise.success = function(fn) {
       promise.then(function(response) {
@@ -160,7 +160,7 @@ servicesModule.service('$upload', ['$http', '$q', '$timeout', function($http, $q
       })(config.xhrFn);
       return promise;
     };
-    
+
     return promise;
   }
 
@@ -202,7 +202,7 @@ servicesModule.service('$upload', ['$http', '$q', '$timeout', function($http, $q
         if (Object.prototype.toString.call(config.file) === '[object Array]') {
           var isFileFormNameString = Object.prototype.toString.call(fileFormName) === '[object String]';
           for (var i = 0; i < config.file.length; i++) {
-            formData.append(isFileFormNameString ? fileFormName : fileFormName[i], config.file[i], 
+            formData.append(isFileFormNameString ? fileFormName : fileFormName[i], config.file[i],
                 (config.fileName && config.fileName[i]) || config.file[i].name);
           }
         } else {

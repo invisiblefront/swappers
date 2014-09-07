@@ -170,7 +170,11 @@ angular.module('myApp.controllers', [])
           $scope.cls = "remove-library-state";
           $scope.manipulation = "exit remove mode";
         }
+
+         console.log($scope.cls);
       }
+
+
 
       $scope.manipulateItem = function($event, index, item) {
         $event.preventDefault();
@@ -186,6 +190,28 @@ angular.module('myApp.controllers', [])
           });
         }
       }
+
+
+
+      $scope.whatClassIsIt=function(itm)
+      {
+        var _cls;
+        if(itm.status==1)
+        {
+          // show normal
+          _cls="list-group-item "+$scope.cls;
+        }
+        else
+        {
+          // show grey
+          _cls="list-group-item-borrowed "+$scope.cls;
+        }
+        return _cls;
+      }
+
+
+
+
 
       $scope.submit = function() {
         $scope.newItem.owner = localStorage.getItem("username");

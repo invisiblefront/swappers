@@ -1,4 +1,4 @@
-<a href="#" class="category" title="{{itm.description}}" ng-mouseover="itemOver()" ng-mouseleave="itemOut()">
+<a href="#" title="{{itm.description}}" ng-mouseover="itemOver()" ng-mouseleave="itemOut()" ng-click="selectItem($event)">
 
 	<div ng-if="category == 'books'" class="item-icon">
 		<img src="img/icons/book-icon.png">
@@ -14,11 +14,13 @@
 	</div>
 	<section class="item-content">
 
-		<section ng-hide="timePick">
+		<section ng-hide="timepick">
 			<header ng-show="swap==false">
 				<h4>{{name}}</h4>
-				<span>Owned by <strong>{{owner}}</strong></span>
+				<span ng-hide="showPeriod">Owned by <strong>{{owner}}</strong></span>
+				<span ng-show="showPeriod">Borrowed for <strong>{{period}}</strong> days</span>
 			</header>
+
 
 			<header ng-show="swap==true">
 				<h4>click to borrow {{name}}</h4>
@@ -26,11 +28,12 @@
 		</section>
 
 
-<!-- 		<section ng-show="timePick">
-			<label for="movie">how long would you like to have the item? : </label>
-			<input id="movie" type="number" value="0"/>
-			<button class="abstract-button" ng-click="confirmSwap()">confirm</button>
-		</section> -->
+ 		<section ng-show="timepick" class="time-selection">
+			<label for="timerange">how many days would you like to have it?: </label>
+			<input ng-model="time" id="timerange" type="number" size="2" value="1" min="1" max="100"/>
+			<button class="confirm-swap-btn" ng-click="confirmSwap()">confirm</button>
+			<button class="discard-swap-btn" ng-click="discardSwap()">x</button>
+		</section>
 	</section>
 
 

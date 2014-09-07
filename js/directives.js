@@ -10,7 +10,7 @@ directive('appVersion', ['version',
       elm.text(version);
     };
   }
-]).directive('item', function() {
+]).directive('item', ['HttpConnectorService', function(HttpConnectorService) {
   return {
     restrict: "E",
     templateUrl: "partials/includes/item.html",
@@ -19,16 +19,20 @@ directive('appVersion', ['version',
       owner:"@owner",
       category:"@category",
       swappable:"@swappable",
-      confirmed:"&confirmed",
+      timepick:"@timepick",
+      period:"@period"
     },
     replace:true,
     link:function($scope)
     {
+      $scope.swap=false;
 
-        $scope.swap=false;
-        $scope.timePick=false;
+      if($scope.period >0)
+      {
+        $scope.showPeriod=true;
+      }
 
-      if($scope.swappable)
+      if($scope.swappable=="true")
       {
         $scope.itemOver=function()
         {
@@ -39,21 +43,43 @@ directive('appVersion', ['version',
         {
           $scope.swap=false;
         }
-/*
-        $scope.showTimeSlider=function()
+      }
+
+      $scope.selectItem=function($event)
+      {
+        $event.preventDefault();
+
+        if(!$scope.timepick && $scope.swap==true)
         {
-          $scope.swap=false;
-          $scope.timePick=true;
+          $scope.timepick="true";
         }
 
-        $scope.confirmSwap=function()
-        {
-          $scope.confirmed="true";
-        }*/
+        console.log( $scope.timepick);
       }
+
+      $scope.confirmSwap=function()
+      {
+            var data={
+              "itemName":$scope.name,
+              "itemRequestor":localStorage.getItem("username"),
+              "itemOwner":$scope.owner,
+              "period":$scope.time
+            };
+
+            HttpConnectorService.borrowItem(data,function(res)
+            {
+                $scope.timepick="false";
+            });
+      }
+
+      $scope.discardSwap=function()
+      {
+        $scope.timepick="false";
+      }
+
     }
   };
-}).directive('transactionItem', [
+}]).directive('transactionItem', [
   function() {
     return {
 

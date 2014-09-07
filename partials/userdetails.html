@@ -11,8 +11,8 @@
     </section>
   </div>
   <ul class="list-group" ng-controller="borrowController">
-    <li class="list-group-item" ng-repeat="itm in items | filter: query | orderBy:order" ng-show="itm.status==1" ng-click="borrow($event, itm)">
-      <item name="{{itm.name}}" owner="{{itm.owner}}" category="{{itm.category}}" swappable="true"></item>
+    <li ng-class='whatClassIsIt(itm)' ng-repeat="itm in items | filter: query | orderBy:order">
+      <item name="{{itm.name}}" owner="{{itm.owner}}" category="{{itm.category}}" swappable="{{checkSwapReady(itm)}}" period="{{itm.period}}"></item>
     </li>
   </ul>
 
