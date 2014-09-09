@@ -199,7 +199,7 @@ angular.module('myApp.transactionControlers', [])
 
       console.log("transaction approved");
 
-
+      $scope.transactionStatusClass="transaction-accepted";
      }
 
 

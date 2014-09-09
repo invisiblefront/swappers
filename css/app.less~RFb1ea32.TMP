@@ -693,43 +693,29 @@ h1
 
     .left-transaction {
       background-color: @transaction-accepted-background;
-
-      .transaction-item a
-      {
-        background-color:  @transaction-accepted-items-background;
-        color: #FDFDFD;
-        cursor: default;
-      }
-
-      .transaction-item a:hover
-      {
-        background-color:  @transaction-accepted-items-background;
-      }
     }
 
     .right-transaction
     {
       background-color: @transaction-accepted-background;
 
+
+
       .list-group-item a {
         background-color: @transaction-accepted-items-background;
-        cursor: default;
-      }
-
-      .list-group-item a:hover {
-        color: #FFFFFF
       }
 
       .show-more-btn
       {
         display: none;
       }
+
     }
 
     .mid-transaction
     {
       background-color: @transaction-accepted-background;
-      background-image: url("../img/icons/accepted-icon.gif");
+      background-image: url("..img/icons/accepted-icon.gif");
       background-repeat: no-repeat;
       background-position: center;
     }
