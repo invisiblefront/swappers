@@ -7,7 +7,6 @@ angular.module('myApp.transactionControlers', [])
 
         $scope.transitionState="active";
 
-
         // show items others want from me
 
         function kompress(src) {
@@ -67,6 +66,17 @@ angular.module('myApp.transactionControlers', [])
           localStorage.setItem("collection", data.collection);
           var all_items = data.collection;
           processCollectionData(all_items);
+
+          // check height of mid button
+
+          console.log($scope.height);
+
+          /*document.getElementById('').style.height = "200px"
+*/
+
+
+          $scope.buttonsHeight=$scope.height;
+
 
         });
 
@@ -181,6 +191,20 @@ angular.module('myApp.transactionControlers', [])
             }
         });
       };
+
+    //  ----------------------------------------- approve swap --------------------------------------------- //
+
+
+     $scope.upproveSwap = function(data){
+
+      console.log("transaction approved");
+
+
+     }
+
+
+
+
     }
   ]).controller('transactionItemController', ['$scope','HttpConnectorService',
     function($scope,HttpConnectorService) {
@@ -242,10 +266,6 @@ angular.module('myApp.transactionControlers', [])
 
         return $scope.isswappable;
       }
-
-
-
-
 
 
 

@@ -121,4 +121,11 @@ directive('appVersion', ['version',
       });
     };
   }
-]);
+]).directive('attributeData', function() {
+    return {
+        restrict: 'A',
+        link: function(scope, element) {
+          scope.height=element.prop('offsetHeight') + 105;
+        }
+    };
+});

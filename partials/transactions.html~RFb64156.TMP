@@ -36,11 +36,12 @@
 
 
 		 		<div class="col-md-2 mid-transaction" ng-model="height">
- 					<button class="mid-transaction-button" ng-class="cls" ng-click="iniateSwap()" style="height:{{buttonsHeight/2}}"></button>
-					<button class="mid-transaction-button-agree" ng-class="cls" ng-click="upproveSwap()" style="height:{{buttonsHeight/2}}"></button>
+<!-- 					<button class="mid-transaction-button" ng-class="cls" ng-click="iniateSwap()"></button>
+					<button class="mid-transaction-button" ng-class="cls" ng-click="upproveSwap()"></button> -->
 
 
-
+						<div class="agree-button" style="height:{{height/2}}"></div>
+						<div class="disagree-button" style="height:{{height/2}}"></div>
 
 
 				</div>

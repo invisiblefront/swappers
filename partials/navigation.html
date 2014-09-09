@@ -5,15 +5,31 @@
         <a class="navbar-brand" href="#"><h1>Swappers</h1></a>
         <span id="logged-as">logged in as: <strong>{{user}}</strong></span>
       </div>
-      <div class="navbar-collapse">
+
         <ul class="nav">
-          <li><button id="logout_btn" ng-click="logout()"><i class="fa fa-sign-out"></i></button></li>
-          <li><a alt="library" href="#" ng-click="checkLogin($event, 'library')" mac-tooltip="Tooltip on bottom" mac-tooltip-direction="bottom"><i class="fa fa-user"></i></a></li>
-          <li><a alt="user list" href="#" ng-click="checkLogin($event, 'userlist')"><i class="fa fa-users"></i></a></li>
-          <li><a alt="items" href="#" ng-click="checkLogin($event, 'items')"><i class="fa fa-database"></i></a></li>
-          <li><a alt="transaction" href="#" ng-click="checkLogin($event, 'transactions')"><i class="fa fa-exchange"></i></a></li>
+          <li>
+          <button id="logout_btn" ng-click="logout()"><i class="fa fa-sign-out"></i></button>
+          <div class="nav-description">logout</div>
+          </li>
+
+          <li>
+          <a alt="library" href="#" ng-click="checkLogin($event, 'library')" mac-tooltip="Tooltip on bottom" mac-tooltip-direction="bottom"><i class="fa fa-user"></i></a>
+          <div class="nav-description">me</div>
+          </li>
+          <li>
+          <a alt="user list" href="#" ng-click="checkLogin($event, 'userlist')"><i class="fa fa-users"></i></a>
+          <div class="nav-description">users</div>
+          </li>
+          <li>
+          <a alt="items" href="#" ng-click="checkLogin($event, 'items')"><i class="fa fa-database"></i></a>
+          <div class="nav-description">items</div>
+          </li>
+          <li>
+          <a alt="transaction" href="#" ng-click="checkLogin($event, 'transactions')"><i class="fa fa-exchange"></i></a>
+          <div class="nav-description">swap</div>
+          </li>
         </ul>
-        </div><!--/.nav-collapse -->
-        </div><!--/.container-fluid -->
-      </div>
+
+    </div><!--/.container-fluid -->
+  </div>
 </div>

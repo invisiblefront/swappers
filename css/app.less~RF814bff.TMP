@@ -148,7 +148,7 @@ h1
 
 .navbar {
   background-color: #000000;
-  height: 75px;
+  height: 65px;
   padding: 10px;
   font-family: 'Open Sans', sans-serif;
   text-transform: uppercase;
@@ -162,31 +162,14 @@ h1
       color: #FEFEFE;
       float: left;
       font-size: 4rem;
-      margin-top: 5px;
 
       @media only screen and (max-width : 480px) {
-      margin-top: 0px;
        font-size: 2rem;
        text-align: center;
        width: 100%;
        margin-bottom: 10px
       }
     }
-}
-
-.nav-description
-{
-  display: block;
-  width: 70px;
-  height: 20px;
-  color: #B4B4B4;
-  font-size: 0.8rem;
-  text-align: center;
-  text-transform: none;
-
-  @media only screen and (max-width : 480px) {
-    display: none;
-  }
 }
 
 
@@ -196,12 +179,15 @@ h1
   float: left;
   margin-left: 20px;
   font-size: 0.8rem;
-  padding-top: 56px;
+  padding-top: 50px;
 
-  @media only screen and (max-width : 480px){
+  @media only screen and (max-width : 480px) {
     display: none;
   }
 }
+
+
+
 
 .nav
 {
@@ -209,38 +195,33 @@ h1
     width: 280px;
     margin: 0 auto;
   }
+}
 
-  li
-  {
-    float: right;
-    margin-right: 10px;
 
-      a
-      {
-        color: #ffffff;
-        display: block;
-        padding-bottom: 15px;
-        padding-top: 10px;
-        text-align: center;
+.nav li {
+  float: right;
+  margin-right: 10px;
+}
+.nav li a {
+  display: block;
+  padding: 20px;
+  color: #FFFFFF;
 
-            @media only screen and (max-width : 480px) {
-              padding: 10px;
-            }
+  @media only screen and (max-width : 480px) {
+    padding: 10px;
+  }
+}
+.nav li a:hover {
+  color: #FFEE1A
+}
 
-            i {
-            font-size: 2rem;
+.nav li a i {
+font-size: 2rem;
 
-              @media only screen and (max-width : 480px) {
-               font-size: 1.5rem;
-               text-align: center;
-               width: 100%;
-              }
-            }
-      }
-
-      a:hover {
-        color: #FFEE1A
-      }
+  @media only screen and (max-width : 480px) {
+   font-size: 1.5rem;
+   text-align: center;
+   width: 100%;
   }
 }
 
@@ -251,12 +232,12 @@ h1
   color: #FFFFFF;
   border:none;
   cursor: pointer;
-  height: 56px;
-  width: 70px;
+  height: 60px;
+  margin-top: 5px;
 
   @media only screen and (max-width : 480px) {
-    width: auto;
     height: 45px;
+    margin-top: 0px;
   }
 }
 

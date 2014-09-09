@@ -21,24 +21,6 @@ h2{font-family:'Open Sans',sans-serif;font-size:1.5rem;text-transform:uppercase;
 strong{text-transform:capitalize;}
 
 
-/*---------------------- less variables ---------------------- */
-
-@left-transaction-background:#AA1919;
-@mid-transaction-background:#6F0000;
-@right-transaction-background:#E25B2E;
-
-@items-background-color:#000000;
-@items-disabled-background-color:#676767;
-
-@transaction-item-background:#FCFCFC;
-
-/*---------------------- globals ---------------------- */
-
-html, body
-{
-  height: 100%;
-}
-
 .cross-browser-full-opacity
 {
   -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
@@ -145,50 +127,18 @@ h1
 }
 
 /* ------------------------ nav menu ------------------------ */
-
-.navbar {
-  background-color: #000000;
-  height: 75px;
-  padding: 10px;
-  font-family: 'Open Sans', sans-serif;
-  text-transform: uppercase;
-
-
-    @media only screen and (max-width : 480px) {
-      height: 75px;
-    }
-
-    .navbar-brand h1{
-      color: #FEFEFE;
-      float: left;
-      font-size: 4rem;
-      margin-top: 5px;
-
-      @media only screen and (max-width : 480px) {
-      margin-top: 0px;
-       font-size: 2rem;
-       text-align: center;
-       width: 100%;
-       margin-bottom: 10px
-      }
-    }
-}
-
-.nav-description
-{
-  display: block;
-  width: 70px;
-  height: 20px;
-  color: #B4B4B4;
-  font-size: 0.8rem;
-  text-align: center;
-  text-transform: none;
+.navbar-brand h1{
+  color: #FEFEFE;
+  float: left;
+  font-size: 4rem;
 
   @media only screen and (max-width : 480px) {
-    display: none;
+   font-size: 2rem;
+   text-align: center;
+   width: 100%;
+   margin-bottom: 10px
   }
 }
-
 
 #logged-as
 {
@@ -196,10 +146,23 @@ h1
   float: left;
   margin-left: 20px;
   font-size: 0.8rem;
-  padding-top: 56px;
+  padding-top: 50px;
 
-  @media only screen and (max-width : 480px){
+  @media only screen and (max-width : 480px) {
     display: none;
+  }
+}
+
+
+.navbar {
+  background-color: #000000;
+  height: 65px;
+  padding: 10px;
+  font-family: 'Open Sans', sans-serif;
+  text-transform: uppercase;
+
+  @media only screen and (max-width : 480px) {
+    height: 75px;
   }
 }
 
@@ -209,38 +172,33 @@ h1
     width: 280px;
     margin: 0 auto;
   }
+}
 
-  li
-  {
-    float: right;
-    margin-right: 10px;
 
-      a
-      {
-        color: #ffffff;
-        display: block;
-        padding-bottom: 15px;
-        padding-top: 10px;
-        text-align: center;
+.nav li {
+  float: right;
+  margin-right: 10px;
+}
+.nav li a {
+  display: block;
+  padding: 20px;
+  color: #FFFFFF;
 
-            @media only screen and (max-width : 480px) {
-              padding: 10px;
-            }
+  @media only screen and (max-width : 480px) {
+    padding: 10px;
+  }
+}
+.nav li a:hover {
+  color: #FFEE1A
+}
 
-            i {
-            font-size: 2rem;
+.nav li a i {
+font-size: 2rem;
 
-              @media only screen and (max-width : 480px) {
-               font-size: 1.5rem;
-               text-align: center;
-               width: 100%;
-              }
-            }
-      }
-
-      a:hover {
-        color: #FFEE1A
-      }
+  @media only screen and (max-width : 480px) {
+   font-size: 1.5rem;
+   text-align: center;
+   width: 100%;
   }
 }
 
@@ -251,12 +209,12 @@ h1
   color: #FFFFFF;
   border:none;
   cursor: pointer;
-  height: 56px;
-  width: 70px;
+  height: 60px;
+  margin-top: 5px;
 
   @media only screen and (max-width : 480px) {
-    width: auto;
     height: 45px;
+    margin-top: 0px;
   }
 }
 
@@ -352,7 +310,7 @@ h1
   padding: 10px;
   display: block;
   color: #FFFFFF;
-  background-color: @items-background-color;
+  background-color: #000000;
   overflow: hidden;
 
   -webkit-transition-duration: 0.3s;
@@ -378,7 +336,7 @@ h1
   height: 55px;
   padding: 10px;
   display: block;
-  color: @items-disabled-background-color;
+  color: #676767;
   background-color: #BCBCBC;
   overflow: hidden;
   cursor: default;
@@ -472,13 +430,12 @@ h1
   font-family: 'Oswald', sans-serif;
 }
 
+
 .transaction-list h1 {
   margin-bottom: 10px;
 }
-
 .transaction-list h3 {
-  line-height: 1.3rem;
-  margin-top: 12px;
+  line-height: 2rem
 }
 
 
@@ -491,7 +448,11 @@ h1
   list-style: none;
   margin-bottom: 20px;
 }
-
+.transaction-list ul li div {
+  padding: 0;
+  padding-left: 10px;
+  padding-right: 10px;
+}
 [class*="col-"] {
   padding-top: 15px;
   padding-bottom: 15px;
@@ -510,14 +471,11 @@ h1
   display: box;
   box-orient: horizontal;
   width: 100%;
-
 }
 .left-transaction {
-  background-color: @left-transaction-background;
-
-  padding: 0;
-  padding-left: 10px;
-  padding-right: 10px;
+  background-color: #AA1919;
+  /* min-height: 160px;
+  */
 
   -moz-box-flex: 1.0; /* Firefox */
   -webkit-box-flex: 1.0; /* Safari and Chrome */
@@ -532,11 +490,9 @@ h1
 }
 
 .right-transaction {
-  background-color: @right-transaction-background;
-
-  padding: 0;
-  padding-left: 10px;
-  padding-right: 10px;
+  background-color: #E25B2E;
+  /* min-height: 160px;
+  */
 
   -moz-box-flex: 1.0; /* Firefox */
   -webkit-box-flex: 1.0; /* Safari and Chrome */
@@ -552,19 +508,15 @@ h1
 }
 
 .mid-transaction {
-  background-color: @mid-transaction-background;
-  -moz-box-flex: 1.0;
+  background-color: #6F0000;
+/*  -moz-box-flex: 1.0;
   -webkit-box-flex: 1.0;
   -ms-flex: 1.0;
-  box-flex: 1.0;
+  box-flex: 1.0;*/
   padding: 0;
   min-width: 100px;
-  height: 100%;
+  height: 100px;
 }
-
-
-
-
 
 .mid-transaction-button {
   position: relative;
@@ -576,6 +528,7 @@ h1
   width: 100%;
   height: inherit;
 
+  background: none;
   background-image: url("../img/icons/transition-icon.gif");
   background-repeat: no-repeat;
   background-position: center;
@@ -602,17 +555,33 @@ h1
 }
 
 
-.mid-transaction-button-agree
+
+
+
+
+
+
+
+
+.agree-button
 {
-  .mid-transaction-button;
-  background-color: #930000;
-   background-image: url("../img/icons/agree-icon.gif");
+  width: 100%;
+  height: 100%;
+  background-color:#D6E613
 }
 
-.mid-transaction-button-agree:hover
+.disagree-button
 {
-  background-color: #820000;
+
 }
+
+
+
+
+
+
+
+
 
 .right-transaction button strong {
   text-transform: capitalize;
@@ -635,16 +604,18 @@ h1
 .right-transaction button:hover {
   background-color: #F9BD31
 }
-
 .transaction-item {
+ /* float: left;*/
+/*  border-style: solid;
+  border-width: 2px;
+  border-color: #000000;
+  margin-right: 10px;
+  margin-bottom: 10px;*/
+
   float: left;
   width: 250px;
   margin-right:25px;
   margin-bottom: 25px;
-
-  @media only screen and (max-width : 480px) {
-    width:auto;
-  }
 }
 
 .transaction-item a {
@@ -653,7 +624,7 @@ h1
   padding: 10px;
   display: block;
   color: #000000;
-  background-color: @transaction-item-background;
+  background-color: #FFFFFF;
   -moz-transition: color 0.3s linear;
   -o-transition: color 0.3s linear;
   -webkit-transition: color 0.3s linear;
@@ -677,16 +648,14 @@ h1
 
 }
 .show-more-btn {
-  .abstact-button;
   height: 40px;
-  margin-bottom: 10px;
+  .abstact-button
 }
 .swap-item {
   margin-bottom: 10px;
 }
 
 /* -------------- my library ---------------- */
-
 .add-item {
   .abstact-button;
   width: 340px;
@@ -695,13 +664,11 @@ h1
   text-transform: uppercase;
   text-align: center;
 }
-
 .close-btn {
   .abstact-button;
   padding: 5px;
   margin-bottom: 10px;
 }
-
 #item-name {
   width: 300px;
 }
@@ -747,85 +714,3 @@ h1
 {
   display: none;
 }
-
-
-
-
-
-
-
-/* ------------ media query for landscape, phone -----------*/
-
-
-
-
-
-
-
-  @media only screen and (max-width : 480px) {
-
-    html, body
-    {
-      overflow-x:hidden;
-    }
-
-            .row {
-              display: block;
-              width: 100%;
-              margin-bottom: 20px;
-              float: left;
-              background-color: @left-transaction-background;
-            }
-
-            .left-transaction {
-              display: block;
-              width: auto;
-              float: left;
-            }
-
-            .left-transaction section
-            {
-              max-width: 700px;
-            }
-
-            .right-transaction {
-
-              display: block;
-              padding-top: 10px;
-              float: left;
-            }
-
-            .right-transaction section
-            {
-              max-width: 700px;
-              float: none !important;
-            }
-
-            .mid-transaction {
-              display: block;
-              padding: 0;
-              width: 100%;
-              height: 120px;
-              float: left;
-            }
-
-            .mid-transaction-button {
-              display: block;
-              width: 100%;
-              height: 60px !important;
-            }
-
-            .mid-transaction-button-agree
-            {
-              height: 60px !important;
-            }
-
-            .list-group-item a
-            {
-              width: 240px;
-            }
-  }
-
-
-
-
