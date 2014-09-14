@@ -213,48 +213,64 @@ angular.module('myApp.controllers', [])
 
       $http.get('http://invisiblefront.net/dev/swappers/api/chat/'+$scope.key).success(function(result){
 
-        $scope.chatMessages=result.messages;
-        console.log($scope.chatMessages);
+
+        var reverseArray=result.messages.reverse();
+
+        $scope.chatMessages=reverseArray;
 
 
+/*                for(var i=0; i<result.messages.length; i++)
+                {
+                        if(result.messages[i].from_user==localStorage.getItem("username"))
+                        {
+                          // this message floats to the left
+                          $scope.chatSort="mine-messages";
+                        }
+                        else
+                        {
+                          $scope.chatSort="opponent-messages";
+                        }
+
+                        console.log($scope.chatSort);
+                }*/
 
 
-for(var i=0; i<result.messages.length; i++)
-{
-        if(result.messages[i].from_user==localStorage.getItem("username"))
-        {
-          // this message floats to the left
-          $scope.chatSort="mine-messages";
-        }
-        else
-        {
-          $scope.chatSort="opponent-messages";
-        }
-}
+               $scope.chatSort=function(from_user)
+               {
+                 console.log(from_user)
 
+                 var cls="";
 
+                 if(from_user == localStorage.getItem("username"))
+                 {
+                    cls="mine-messages";
+                 }
+                 else
+                 {
+                    cls="opponent-messages";
+                 }
 
+                 return cls;
 
+               }
+
+              $scope.confirm_chat=function()
+              {
+                $scope.chat_sent=$scope.chat;
+                $scope.chat="sent..";
+
+                $scope.chat_btn = "chatButtonDisabled";
+
+                var chat_data={
+                  msg:$scope.chat_sent,
+                  to:$scope.key,
+                  from:localStorage.getItem("username")
+                }
+
+                HttpConnectorService.connectTo('http://invisiblefront.net/dev/swappers/api/chat/',chat_data, function(data) {
+
+                });
+              }
       })
-
-
-      $scope.confirm_chat=function()
-      {
-        $scope.chat_sent=$scope.chat;
-        $scope.chat="sent..";
-
-        $scope.chat_btn = "chatButtonDisabled";
-
-        var chat_data={
-          msg:$scope.chat_sent,
-          to:$scope.key,
-          from:localStorage.getItem("username")
-        }
-
-        HttpConnectorService.connectTo('http://invisiblefront.net/dev/swappers/api/chat/',chat_data, function(data) {
-          console.log(data);
-        });
-      }
-
     }
   ])

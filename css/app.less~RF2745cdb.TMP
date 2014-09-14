@@ -827,6 +827,8 @@ h1
 .chat-window
 {
   width: 100%;
+  min-height: 180px;
+  background-color: @chat-area-background;
   padding-top: 5px;
   padding-bottom: 10px;
 
@@ -857,11 +859,6 @@ h1
     background-color: #6C6C6C;
   }
 
-  .mine-messages section
-  {
-    float: left;
-  }
-
   .opponent-messages
   {
      width: 100%;
@@ -869,17 +866,7 @@ h1
     background-color: #E03838;
   }
 
-  .opponent-messages section
-  {
-    float: right;
-  }
 
-  .chat-area ul
-  {
-    background-color: #DDDDDD;
-    padding-top: 20px;
-    padding-bottom: 10px;
-  }
 
 
   .chat-area ul li h3

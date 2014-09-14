@@ -878,7 +878,7 @@ h1
   {
     background-color: #DDDDDD;
     padding-top: 20px;
-    padding-bottom: 10px;
+    padding-bottom: 20px;
   }
 
 
