@@ -211,31 +211,10 @@ angular.module('myApp.controllers', [])
     function($scope, $http, HttpConnectorService) {
 
 
-      $http.get('http://invisiblefront.net/dev/swappers/api/chat/'+$scope.key).success(function(result){
+      $http.get('http://invisiblefront.net/dev/swappers/api/chat/'+localStorage.getItem("username")).success(function(data){
 
-        $scope.chatMessages=result.messages;
-        console.log($scope.chatMessages);
-
-
-
-
-for(var i=0; i<result.messages.length; i++)
-{
-        if(result.messages[i].from_user==localStorage.getItem("username"))
-        {
-          // this message floats to the left
-          $scope.chatSort="mine-messages";
-        }
-        else
-        {
-          $scope.chatSort="opponent-messages";
-        }
-}
-
-
-
-
-      })
+        console.log(data);
+      }
 
 
       $scope.confirm_chat=function()

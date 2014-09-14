@@ -9,13 +9,17 @@ angular.module('myApp.transactionControlers', [])
 
         // show items others want from me
 
-        function kompress(src){
+        function kompress(src) {
           var kompressed = {};
           for (var num in src) {
             for (var key in src[num]) {
               if (typeof kompressed[key] == "undefined") {
 
+/*                if(key !=localStorage.getItem("username"))
+                {*/
                   kompressed[key] = [src[num][key]];
+               /* }*/
+
 
               } else {
                 kompressed[key].push(src[num][key]);
@@ -34,32 +38,14 @@ angular.module('myApp.transactionControlers', [])
               if ($scope.items.hasOwnProperty(key)) transactionLenght++;
           }
 
+
+
           if(transactionLenght==0)
           {
             $scope.notification="You dont have any running transactions at the moment";
             $scope.hint="why dont you take a look in";
             $scope.showTip=true;
           }
-
-        // check state of this transaction
-        // if it is pending and users are in chat mode, applie this class:
-        // $scope.transactionStatusClass="transaction-accepted";
-
-
-
-
-          $http.get('http://invisiblefront.net/dev/swappers/api/transaction/state/'+localStorage.getItem("username")).success(function(data){
-
-            if(data="pending")
-            {
-              $scope.transactionStatusClass="transaction-accepted";
-              $scope.state="pending";
-            }
-          })
-
-
-
-
       });
     }
   ])
@@ -83,6 +69,7 @@ angular.module('myApp.transactionControlers', [])
 
           // check height of mid button
 
+          console.log($scope.height);
 
           /*document.getElementById('').style.height = "200px"
 */
@@ -107,7 +94,7 @@ angular.module('myApp.transactionControlers', [])
 
       //  ----------------------------------- open library in transactions ----------------------------------- //
 
-      $scope.openLibrary = function(data){
+      $scope.openLibrary = function(data) {
         var name = data;
         $http.get('http://invisiblefront.net/dev/swappers/api/collection/' + data).success(function(data){
           $scope.libraryOpen = true;
@@ -172,6 +159,7 @@ angular.module('myApp.transactionControlers', [])
 
       $scope.iniateSwap = function(data) {
 
+        console.log($scope.value);
 
         var _my_requests={};
         var _my_requested_names=[];
@@ -205,25 +193,31 @@ angular.module('myApp.transactionControlers', [])
       };
 
     //  ----------------------------------------- approve swap --------------------------------------------- //
-     $scope.upproveSwap = function(){
+
+
+     $scope.upproveSwap = function(data){
+
 
       // change visual aspect of transaction row
       $scope.transactionStatusClass="transaction-accepted";
 
           var upprovedData={
-            from:$scope.key,
+            from:data,
             to:localStorage.getItem("username"),
             state:"pending"
           };
 
-        HttpConnectorService.connectTo("http://invisiblefront.net/dev/swappers/api/transaction/state/", upprovedData,function(result)
-        {
-            console.log("approved");
+      console.log(data);
 
-        });
+/*        HttpConnectorService.connectTo("../api/transaction/state/", upprovedData,function(result)
+          {
+            console.log("result");
+          });*/
      }
 
-    //  ----------------------------------------- chat --------------------------------------------- //
+
+
+
     }
   ]).controller('transactionItemController', ['$scope','HttpConnectorService',
     function($scope,HttpConnectorService) {
@@ -285,5 +279,9 @@ angular.module('myApp.transactionControlers', [])
 
         return $scope.isswappable;
       }
+
+
+
+
     }
   ]);

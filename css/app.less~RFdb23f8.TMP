@@ -828,7 +828,7 @@ h1
 .chat-window
 {
   width: 100%;
-  min-height: 180px;
+  min-height: 150px;
   background-color: @chat-area-background;
   padding-top: 5px;
   padding-bottom: 10px;
@@ -850,81 +850,33 @@ h1
 
   .chat-area ul li
   {
-    margin-top: 15px;
-
-    width: auto;
-    width: 50%;
-    display: block;
-    height: auto;
-
-  }
-
-  .mine-messages
-  {
     background-color: #6C6C6C;
-    float:left;
-  }
-
-  .opponent-messages
-  {
-    background-color: #8C8C8C;
-    float:right;
-  }
-
-  .chat-area ul li h3
-  {
-    text-align: left;
-    float: left;
-    margin-left: 14px
-  }
-
-  .chat-area ul li p
-  {
-    text-align: left;
-    float: left;
-    padding:14px;
-  }
-
-
-  .chat-control
-  {
     width: 100%;
+  }
+
+  .chat-area ul li textarea
+  {
+    border: none;
+    padding: 5px;
+  }
+
+  .my-qstn
+  {
     float: left;
   }
 
-  .chat-control button
+  .opponent-qstn
   {
-    display: block;
-    width: 80px;
-    height: 30px;
-    margin: 0 auto;
-    margin-bottom: 10px;
+    float: right;
   }
 
-  .chat-control textarea
-  {
-    display: block;
-    margin: 0 auto;
-    width: 340px;
-    border: solid;
-    border-width: 2px;
-    border-color: #000000;
-    padding: 10px;
-    font-family: "open sans";
-    background-color: #EEEEEE;
-    height: 60px;
-    font-size: 0.7rem
-  }
 }
 
 
 
 
 
-  .chatButtonDisabled
-  {
 
-  }
 
 
 

@@ -69,20 +69,17 @@
 						<h3>messages</h3>
 					</header>
 
-					<section class="chat-area" ng-controller="ChatController">
+					<section class="chat-area">
 						<ul>
-							<li ng-repeat="msg in chatMessages" ng-class="chatSort">
-								<h3>{{msg.from_user}} asks: </h3>
-								<p>{{msg.message}}</p>
+							<li>
+								<input rows="20" class="my-qstn" type="text" placeholder="Ask question to {{key}}">
+								<textarea class="opponent-qstn"></textarea>
 							</li>
 						</ul>
 					</section>
 
 
 					<section class="chat-control">
-
-						<button ng-click="confirm_chat()" ng-class="chat_btn"><</button>
-						<textarea placeholder="Ask question to {{key}}" required autofocus ng-model="chat">{{chat}}</textarea>
 
 					</section>
 

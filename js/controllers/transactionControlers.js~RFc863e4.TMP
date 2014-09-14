@@ -50,11 +50,8 @@ angular.module('myApp.transactionControlers', [])
 
           $http.get('http://invisiblefront.net/dev/swappers/api/transaction/state/'+localStorage.getItem("username")).success(function(data){
 
-            if(data="pending")
-            {
-              $scope.transactionStatusClass="transaction-accepted";
-              $scope.state="pending";
-            }
+            console.log(data);
+
           })
 
 
@@ -219,11 +216,12 @@ angular.module('myApp.transactionControlers', [])
         HttpConnectorService.connectTo("http://invisiblefront.net/dev/swappers/api/transaction/state/", upprovedData,function(result)
         {
             console.log("approved");
-
         });
      }
 
-    //  ----------------------------------------- chat --------------------------------------------- //
+
+
+
     }
   ]).controller('transactionItemController', ['$scope','HttpConnectorService',
     function($scope,HttpConnectorService) {

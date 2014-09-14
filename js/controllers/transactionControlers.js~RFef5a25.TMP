@@ -224,6 +224,15 @@ angular.module('myApp.transactionControlers', [])
      }
 
     //  ----------------------------------------- chat --------------------------------------------- //
+
+
+
+    $scope.confirm_chat=function()
+    {
+      $scope.chat_sent = $scope.chat_write;
+    }
+
+
     }
   ]).controller('transactionItemController', ['$scope','HttpConnectorService',
     function($scope,HttpConnectorService) {

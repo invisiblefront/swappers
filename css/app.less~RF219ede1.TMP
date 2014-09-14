@@ -851,40 +851,12 @@ h1
   .chat-area ul li
   {
     margin-top: 15px;
-
+    background-color: #6C6C6C;
     width: auto;
     width: 50%;
     display: block;
-    height: auto;
-
-  }
-
-  .mine-messages
-  {
-    background-color: #6C6C6C;
     float:left;
   }
-
-  .opponent-messages
-  {
-    background-color: #8C8C8C;
-    float:right;
-  }
-
-  .chat-area ul li h3
-  {
-    text-align: left;
-    float: left;
-    margin-left: 14px
-  }
-
-  .chat-area ul li p
-  {
-    text-align: left;
-    float: left;
-    padding:14px;
-  }
-
 
   .chat-control
   {
