@@ -1,4 +1,4 @@
-<a href="#" title="{{itm.description}}" ng-mouseover="itemOver()" ng-mouseleave="itemOut()" ng-click="selectItem($event)">
+<a href="#" title="{{itm.description}}" ng-mouseover="itemOver()" ng-mouseleave="itemOut()" ng-click="selectItem($event)" ng-class="whatClassIsit()">
 
 	<div ng-if="category == 'books'" class="item-icon">
 		<img src="img/icons/book-icon.png">

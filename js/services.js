@@ -2,6 +2,8 @@
 
 var servicesModule = angular.module('myApp.services', [])
 
+// define a constant
+servicesModule.constant('apiPath', 'http://151.236.10.206/dev/swappers/api/');
 
 /* ----------------- services -----------------*/
 
@@ -28,7 +30,19 @@ servicesModule.service('UserDataService', function() {
   };
 });
 
+
 /* ----------------- factories -----------------*/
+
+
+// use it in a service
+servicesModule.factory('ConstantProvider', ['apiPath', function(apiPath){
+   return {
+       getApiPath: function () {
+          return apiPath; //blah
+       }
+   };
+}]);
+
 
 servicesModule.factory('HttpConnectorService', function($http) {
 
@@ -46,7 +60,7 @@ servicesModule.factory('HttpConnectorService', function($http) {
     removeItem: function(data, callback) {
       $http({
         method: 'PUT',
-        url: 'http://invisiblefront.net/dev/swappers/api/collection/',
+        url: 'http://151.236.10.206/dev/swappers/api/collection/',
         data: data,
         headers: {
           'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
@@ -56,7 +70,7 @@ servicesModule.factory('HttpConnectorService', function($http) {
     borrowItem: function(data, callback) {
       $http({
         method: 'PUT',
-        url: 'http://invisiblefront.net/dev/swappers/api/transaction/',
+        url: 'http://151.236.10.206/dev/swappers/api/transaction/',
         data: data,
         headers: {
           'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
@@ -66,7 +80,7 @@ servicesModule.factory('HttpConnectorService', function($http) {
     deleteItemFromDB: function(data, callback) {
       $http({
         method: 'DELETE',
-        url: 'http://invisiblefront.net/dev/swappers/api/item/',
+        url: 'http://151.236.10.206/dev/swappers/api/item/',
         data: data,
         headers: {
           'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
@@ -76,12 +90,23 @@ servicesModule.factory('HttpConnectorService', function($http) {
     initTransaction: function(data, callback) {
       $http({
         method: 'POST',
-        url: 'http://invisiblefront.net/dev/swappers/api/transaction/',
+        url: 'http://151.236.10.206/dev/swappers/api/transaction/',
         data: data,
         headers: {
           'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
         }
       }).success(callback)
+    }
+  }
+});
+
+
+
+servicesModule.factory('Wizard', function() {
+
+  return {
+    Notify: function(message) {
+      return message;
     }
   }
 });

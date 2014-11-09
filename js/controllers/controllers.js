@@ -3,10 +3,12 @@
 /* Controllers */
 
 angular.module('myApp.controllers', [])
-  .controller('UserListController', ['$scope', '$http',
-    function($scope, $http) {
+  .controller('UserListController', ['$scope', '$http', 'ConstantProvider',
+    function($scope, $http, ConstantProvider) {
 
-      $http.get('http://invisiblefront.net/dev/swappers/api/users').success(function(data) {
+
+
+      $http.get(ConstantProvider.getApiPath()+'users').success(function(data){
         $scope.users = data.users;
         $scope.transitionState="active";
 
@@ -15,31 +17,34 @@ angular.module('myApp.controllers', [])
       });
     }
   ])
-  .controller('UserDetailsController', ['$scope', '$http', '$routeParams',
-    function($scope, $http, $routeParams) {
+  .controller('UserDetailsController', ['$scope', '$http', '$routeParams','ConstantProvider',
+    function($scope, $http, $routeParams,ConstantProvider){
 
       $scope.username = $routeParams.id;
-      $http.get('http://invisiblefront.net/dev/swappers/api/collection/' + $routeParams.id).success(function(data) {
+      $http.get(ConstantProvider.getApiPath()+'collection/' + $routeParams.id).success(function(data) {
         $scope.items = data.collection;
         $scope.transitionState="active";
       });
     }
   ])
-  .controller('LoginController', ['$scope', '$location', 'HttpConnectorService',
-    function($scope, $location, HttpConnectorService) {
+  .controller('LoginController', ['$scope', '$location', 'HttpConnectorService','ConstantProvider',
+    function($scope, $location, HttpConnectorService,ConstantProvider) {
 
       $scope.transitionState="active";
 
       if (localStorage.getItem("isLogged")) {
-        $location.path('/transactions');
+        $location.path(ConstantProvider.getApiPath()+'/transactions');
       } else {
-        $scope.submit = function() {
-          HttpConnectorService.connectTo('http://invisiblefront.net/dev/swappers/api/login/', $scope.credentials, function(data) {
-            if (data == 1) {
+
+
+        $scope.submit = function(){
+
+          HttpConnectorService.connectTo(ConstantProvider.getApiPath()+'login/', $scope.credentials, function(data) {
+              if (data == 1) {
 
               localStorage.setItem("username", $scope.credentials.name);
               localStorage.setItem("isLogged", true);
-              localStorage.setItem("avatar");
+              /*localStorage.setItem("avatar");*/
               $location.path('/transactions');
 
             } else {
@@ -51,8 +56,8 @@ angular.module('myApp.controllers', [])
       }
     }
   ])
-  .controller('RegisterController', ['$scope', '$location', 'HttpConnectorService','$upload',
-    function($scope, $location, HttpConnectorService,$upload) {
+  .controller('RegisterController', ['$scope', '$location', 'HttpConnectorService','$upload','ConstantProvider',
+    function($scope, $location, HttpConnectorService,$upload,ConstantProvider) {
 
       $scope.transitionState="active";
       $scope.avatar="";
@@ -61,7 +66,7 @@ angular.module('myApp.controllers', [])
 
         $scope.register.avatar=$scope.avatar;
 
-        HttpConnectorService.connectTo('http://invisiblefront.net/dev/swappers/api/users/', $scope.register, function(data) {
+        HttpConnectorService.connectTo(ConstantProvider.getApiPath()+'users/', $scope.register, function(data) {
           localStorage.setItem("username", $scope.register.username);
           localStorage.setItem("isLogged", true);
           $location.path('/transactions');
@@ -78,7 +83,7 @@ angular.module('myApp.controllers', [])
               $scope.avatar = file.name;
 
               $scope.upload = $upload.upload({
-                  url: 'http://invisiblefront.net/dev/swappers/api/imageupload.php',
+                  url: ConstantProvider.getApiPath()+'imageupload.php',
                   method: 'POST',
                   file: file
               }).success(function(data, status, headers, config) {
@@ -113,10 +118,10 @@ angular.module('myApp.controllers', [])
       }
     }
   ])
-  .controller('AllItemsController', ['$scope', '$http', 'HttpConnectorService',
-    function($scope, $http, HttpConnectorService) {
+  .controller('AllItemsController', ['$scope', '$http', 'HttpConnectorService','ConstantProvider',
+    function($scope, $http, HttpConnectorService, ConstantProvider) {
 
-      $http.get('http://invisiblefront.net/dev/swappers/api/collection').success(function(data) {
+      $http.get(ConstantProvider.getApiPath()+'collection').success(function(data) {
 
       $scope.transitionState="active";
 
@@ -130,8 +135,8 @@ angular.module('myApp.controllers', [])
       });
     }
   ])
-  .controller('LibraryController', ['$scope', '$http', 'HttpConnectorService',
-    function($scope, $http, HttpConnectorService) {
+  .controller('LibraryController', ['$scope', '$http', 'HttpConnectorService','ConstantProvider',
+    function($scope, $http, HttpConnectorService, ConstantProvider) {
 
       $scope.transitionState="active";
 
@@ -142,7 +147,7 @@ angular.module('myApp.controllers', [])
       $scope.newItemForm = false;
       $scope.instructions = "";
 
-      $http.get('http://invisiblefront.net/dev/swappers/api/collection/' + localStorage.getItem("username")).success(function(data) {
+      $http.get(ConstantProvider.getApiPath()+'collection/' + localStorage.getItem("username")).success(function(data) {
         $scope.libraryItems = data.collection;
       });
 
@@ -204,14 +209,14 @@ angular.module('myApp.controllers', [])
         $scope.newItem.owner = localStorage.getItem("username");
         $scope.newItem.status = 1;
         $scope.libraryItems.push($scope.newItem);
-        HttpConnectorService.connectTo('http://invisiblefront.net/dev/swappers/api/item/', $scope.newItem, function(data) {});
+        HttpConnectorService.connectTo(ConstantProvider.getApiPath()+'item/', $scope.newItem, function(data) {});
       }
     }
-  ]).controller('ChatController', ['$scope', '$http', 'HttpConnectorService',
-    function($scope, $http, HttpConnectorService) {
+  ]).controller('ChatController', ['$scope', '$http', 'HttpConnectorService','ConstantProvider',
+    function($scope, $http, HttpConnectorService,ConstantProvider) {
 
 
-      $http.get('http://invisiblefront.net/dev/swappers/api/chat/'+$scope.key).success(function(result){
+      $http.get(ConstantProvider.getApiPath()+'chat/'+$scope.key).success(function(result){
 
 
         var reverseArray=result.messages.reverse();
@@ -267,7 +272,7 @@ angular.module('myApp.controllers', [])
                   from:localStorage.getItem("username")
                 }
 
-                HttpConnectorService.connectTo('http://invisiblefront.net/dev/swappers/api/chat/',chat_data, function(data) {
+                HttpConnectorService.connectTo(ConstantProvider.getApiPath()+'chat/',chat_data, function(data) {
 
                 });
               }

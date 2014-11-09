@@ -2,8 +2,11 @@
 	<header>
 		<h1>Transactions</h1>
 		<section class="notification">
+			<h2 class="wizard" ng-show="hasWizard"><i class="fa fa-exclamation-circle"></i>
+<strong>{{wizardCount}}. </strong><span>{{wizardMessage}}</span></h2>
 			<h3>{{notification}}</h3>
 			<h4>{{hint}}</h4>
+
 			<nav ng-show="showTip" ng-controller="NavigationController">
 				<a alt="items" href="#" ng-click="checkLogin($event, 'items')"><i class="fa fa-database"></i></a>
 				or
@@ -14,33 +17,13 @@
 	<ul>
 		<section ng-repeat="(key, value) in items" ng-controller="TransactionLibraryController" attribute-data>
 			<li class="row" ng-class="transactionStatusClass">
-				<!-- items that someone would like to borrow from you -->
-				<div class="col-md-5 left-transaction" ng-model="key" >
-					<!-- only fill up items on the left with requests of other persons towards you -->
-					<!-- <section ng-if="key !='alex'"> -->
-					<section>
-						<h3><strong>{{key}}</strong> wants from you:</h3>
-						<hr/>
-						<ul>
-							<li ng-repeat="item in value track by $index" class="transaction-item" ng-controller="transactionItemController">
-								<a href="#" ng-show="visible" ng-click="showItemMenu($event)">{{item}}</a>
-								<a href="#" ng-hide="visible" ng-click="removeFromBorrow($event,$index,item, key)">remove item?</a>
-								<a href="#" ng-hide="visible" ng-click="close($event)">no</a>
-							</li>
-						</ul>
-					</section>
-				</div>
 
-
-
-				<!-- transaction interface -->
-				<div class="col-md-2 mid-transaction" ng-model="height">
-					<button class="mid-transaction-button" ng-class="cls" ng-click="iniateSwap()" style="height:{{buttonsHeight/2}}"></button>
-					<button class="mid-transaction-button-agree" ng-class="cls" ng-click="upproveSwap()" style="height:{{buttonsHeight/2}}"></button>
-				</div>
 
 				<!-- items that you would like to borrow -->
-				<div class="col-md-5 right-transaction" ng-model="requestedArray">
+				<div class="col-md-5 right-transaction" ng-model="requestedArray" ng-class="isApprovedFromOtherSide">
+
+<!-- {{requestedArray[0].approval}} -->
+
 					<section ng-if="requestedArray.length==0">
 						<h3 ng-show="libraryOpen">{{instruction}} </h3>
 						<button class="library-btn" ng-click="openLibrary(key)" ng-hide="libraryOpen">open library of <strong>{{key}}</strong></button>
@@ -54,16 +37,55 @@
 						<h3>I want from <strong>{{key}}</strong>:</h3>
 						<hr/>
 						<ul>
+
+
+
 							<li ng-repeat="itm in requestedArray track by $index" ng-click="removeItem($event,$index)" class="list-group-item transaction-list">
+
+
+
 								<item name="{{itm.name}}" owner="{{itm.owner}}" category="{{itm.category}}"></item>
 							</li>
 						</ul>
 						<button class="show-more-btn" ng-click="openLibrary(key)">>></button>
 					</section>
 				</div>
+
+
+				<!-- transaction interface -->
+				<div class="mid-transaction" ng-model="height">
+					<div ng-hide="isWaiting">
+	 					<button class="mid-transaction-button" ng-hide="button_show" ng-class="cls" ng-click="initSwap()" style="height:{{buttonsHeight+10}}"></button>
+	 					<button class="mid-transaction-button-agree" ng-show="button_show" ng-class="cls" ng-click="upproveSwap()" style="height:{{buttonsHeight+10}}"></button>
+					</div>
+				</div>
+
+				<!-- items that someone would like to borrow from you -->
+				<div class="col-md-5 left-transaction" ng-model="key" ng-class="isApprovedFromMineSide" ng-controller="transactionItemController">
+
+
+
+
+					<!-- only fill up items on the left with requests of other persons towards you -->
+					<!-- <section ng-if="key !='alex'"> -->
+					<section>
+						<h3><strong>{{key}}</strong> wants from you:</h3>
+						<hr/>
+						<ul>
+							<li ng-repeat="item in value track by $index" class="transaction-item" >
+
+								<a href="#" ng-show="visible" ng-click="showItemMenu($event)">{{item.name}}</a>
+								<a href="#" ng-hide="visible" ng-click="removeFromBorrow($event,$index,item, key)">remove item?</a>
+								<a href="#" ng-hide="visible" ng-click="close($event)">no</a>
+							</li>
+						</ul>
+					</section>
+				</div>
+
+
 			</li>
 
-				<div class="chat-window" ng-if="state='pending'" ng-controller="ChatController">
+<!--  				<div class="chat-window" ng-if="state=='pending'" ng-controller="ChatController">
 
 					<header>
 						<h3>messages</h3>
@@ -88,7 +110,7 @@
 
 					</section>
 
-				</div>
+				</div>  -->
 
 			<!-- library of person that wants to borrow your stuff -->
 			<div class="transactionLibrary" ng-show="libraryOpen">

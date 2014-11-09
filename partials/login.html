@@ -1,23 +1,31 @@
+<section class="about_en">
+	<h2>What?</h2>
+	<p>A web app. You can put a list of your stuff online to show others what you would be willing to lend out.
+	If somebody wants to borrow something from you, you can get in contact wia this site.
+	For a friend to borrow stuff from you, he then can bring whatever you want to borrow from him to the meeting.
+	Exchanging stuff is also possible. You can mark in you gallery which itmes you would like to lend out and which are for swapping as well.
+	Within a transaction, the same procedure takes place as if you just borrow.</p>
+</section>
 
-		<div class="login">
-			<h2 class="login-title">Sign in to continue</h2>
+<section class="login">
+	<h2 class="login-title">Sign in to continue</h2>
+	<div class="account-wall">
+		<img class="profile-img" src="https://lh5.googleusercontent.com/-b0-k99FZlyE/AAAAAAAAAAI/AAAAAAAAAAA/eu7opA4byxI/photo.jpg?sz=120"
+		alt="">
+		<form class="form-signin" name="loginForm" ng-submit=submit()>
+			<input type="text" id="username" ng-model="credentials.name" placeholder="login">
+			<input type="text" id="password" ng-model="credentials.password" placeholder="password">
+			<button class="login-btn abstact-button" type="submit">login</button>
+		</form>
+		<a href="#/register" class="new-account abstact-button">new account</a>
+	</div>
+</section>
 
-			<div class="account-wall">
-				<img class="profile-img" src="https://lh5.googleusercontent.com/-b0-k99FZlyE/AAAAAAAAAAI/AAAAAAAAAAA/eu7opA4byxI/photo.jpg?sz=120"
-				alt="">
-
-					<form class="form-signin" name="loginForm" ng-submit=submit()>
-						<input type="text" id="username" ng-model="credentials.name" placeholder="login">
-						<input type="password" id="password" ng-model="credentials.password" placeholder="password">
-						<button class="login-btn abstact-button" type="submit">login</button>
-					</form>
-
-
-				<a href="#/register" class="new-account abstact-button">new account</a>
-			</div>
-
-		</div>
-
-
-
-
+<section class="about_de">
+	<h2>Was?</h2>
+	<p>Ihr könnt online stellen welche eurer eigenen Besitztümer Ihr an eure Freunde vervorgen wollt.
+	Wenn ein Gegenstand ausgeborgt wird kontaktiert euch der Freund per Nachricht auf der Seite und Ihr macht euch einen Übergabetermin aus.
+	Dafür dass er bei Dir ausborgen darf muss er Dir zum Treffen den Gegenstand aus seiner Bibliothek mitnehmen, den Du Dir gerne ausborgen würdest.
+	Tauschen von Gegenständen ist natürlich auch möglich. Markieren welche der Gegenstände verborgt werden und welche zum Tausch bereit stehen.
+	Bei einem Tausch greift das gleiche Verahren wie beim Ausborgen.</p>
+</section>

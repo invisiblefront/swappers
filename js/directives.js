@@ -70,6 +70,13 @@ directive('appVersion', ['version',
             {
                 $scope.timepick="false";
             });
+
+/*      $scope.whatClassIsit=function()
+      {
+          return "list-group-item-borrowed";
+      }*/
+
+  
       }
 
       $scope.discardSwap=function()
